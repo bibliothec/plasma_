@@ -1,0 +1,16 @@
+import PyGnuplot as gp
+
+gp.c('set title "magnetic field"')
+gp.c('set datafile separator ","')
+gp.c('set terminal png')
+gp.c('set output "img1.png"')
+gp.c('set xrange [0.0:8.0]')
+gp.c('set yrange [0.0:5.0]')
+gp.c('set ylabel "y(cm)"')
+gp.c('set xlabel "x(cm)"')
+gp.c('set key outside')
+gp.c('set key box')
+gp.c('set size ratio -1')
+gp.c('adj=0.005')
+gp.c('plot "a.csv" using 1:2:(adj*$4):(adj*$3) with vectors title "vec"')
+gp.c('set out')

@@ -1,0 +1,24 @@
+Option VBASupport 1
+Sub Replace()
+    Dim c
+    For Each c In Range("A1:E200")
+        If InStr(c.Value, "N") > 0 Then
+          c.value=Replace(c.value,"N","*1")
+        ElseIf InStr(c.Value, "S") > 0 Then
+          c.value=Replace(c.value,"S","*-1")
+        End If
+    Next c
+End Sub
+
+Sub stringTonum()
+  For Each a in Range("C1:D187").Cells
+  a.Formula="="+a.Formula
+  Next
+End Sub
+
+Sub left()
+  For Each b in Range("A0:A200").Cells
+    If b.Formula<4.0 Then
+      b.Offset(0,2)=b.Offset(0,2)+"*-1"
+  Next
+End Sub
